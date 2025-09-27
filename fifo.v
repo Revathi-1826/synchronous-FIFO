@@ -49,23 +49,7 @@ end
 end
 
 //EMPTY CONDITION
-/*always@(*)
-begin
-if(wr_ptr == rd_ptr)
-   empty<=1'b1;
-else
-   empty<=1'b0;
-end*/
-
 assign empty=(wr_ptr == rd_ptr)?1'b1:1'b0;
-
 //FULL CONDITION
-/*always@(*)
-begin
-if((wr_ptr[5]!=rd_ptr[5])&& (wr_ptr[4:0] == rd_ptr[4:0]))
-   full<=1'b1;
-else
-   full<=1'b0;
- end*/
 assign full=((wr_ptr[4]!=rd_ptr[4])&& (wr_ptr[3:0] == rd_ptr[3:0]))?1'b1:1'b0;
 endmodule
